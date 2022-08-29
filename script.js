@@ -1,6 +1,8 @@
 let text = document.querySelector("#_text");
 const startBtn = document.querySelector("#_startBtn");
 const stopBtn = document.querySelector("#_stopBtn");
+const leftBtn = document.querySelector("#_leftBtn");
+const rightBtn = document.querySelector("#_rightBtn");
 
 let arr = [
   "text 0",
@@ -36,9 +38,10 @@ function timerStart() {
   startBtn.removeEventListener("click", timerStart);
 }
 
-startBtn.addEventListener("click", timerStart);
-
-stopBtn.addEventListener("click", function () {
+function timerPause() {
   clearInterval(timerId);
   startBtn.addEventListener("click", timerStart);
-});
+}
+
+startBtn.addEventListener("click", timerStart);
+stopBtn.addEventListener("click", timerPause);
