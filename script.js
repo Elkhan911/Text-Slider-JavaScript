@@ -4,6 +4,7 @@ const stopBtn = document.querySelector("#_stopBtn");
 const leftBtn = document.querySelector("#_leftBtn");
 const rightBtn = document.querySelector("#_rightBtn");
 
+// массив текста
 let arr = [
   "text 0",
   "text 1",
@@ -18,12 +19,15 @@ let arr = [
   "text 10",
 ];
 
-//
+// счетчик для таймера
 let timerCounter = 0;
+// идентифкатора таймера
 let timerId;
 
+// текст по умолчанию для слайдера
 text.textContent = arr[0];
 
+// функция для запуская таймера
 function timerStart() {
   timerId = setInterval(function () {
     timerCounter++;
@@ -38,6 +42,7 @@ function timerStart() {
   startBtn.removeEventListener("click", timerStart);
 }
 
+// функция для паузы таймера
 function timerPause() {
   clearInterval(timerId);
   startBtn.addEventListener("click", timerStart);
