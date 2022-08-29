@@ -50,3 +50,21 @@ function timerPause() {
 
 startBtn.addEventListener("click", timerStart);
 stopBtn.addEventListener("click", timerPause);
+
+leftBtn.addEventListener("click", function () {
+  text.textContent = arr[timerCounter];
+  if (timerCounter <= 1) {
+    timerCounter = 1;
+  }
+  timerCounter--;
+  console.log(timerCounter);
+});
+
+rightBtn.addEventListener("click", function () {
+  text.textContent = arr[timerCounter];
+  if (timerCounter == 10) {
+    timerCounter = 9;
+  }
+  timerCounter++;
+  console.log(timerCounter);
+});
