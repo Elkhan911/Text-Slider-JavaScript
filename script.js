@@ -1,4 +1,4 @@
-let text = document.querySelector("#_text");
+let sliderText = document.querySelector("#_sliderText");
 const startBtn = document.querySelector("#_startBtn");
 const stopBtn = document.querySelector("#_stopBtn");
 const leftBtn = document.querySelector("#_leftBtn");
@@ -11,7 +11,7 @@ let arr = [
   "Счастье охотнее заходит в тот дом, где всегда царит хорошее настроение",
   "Если это не весело, значит вы делаете это неправильно",
   "Сторонитесь людей, которые пытаются уменьшить ваши амбиции",
-  "Если вы сами цените себя невысоко, мир не предложит вам ни на грош больше",
+  "Если вы сами цените себя невысоко, мир не предложит вам больше",
   "Не имея возможности жить вечно, мы имеем возможность жить ярко",
   "Вечность влюблена в творения времени",
   "Жизнь — это поезд, займи свое место",
@@ -20,7 +20,6 @@ let arr = [
   "С самого низа все пути ведут наверх",
   "Этот миг и есть твоя жизнь",
   "Доверие — это важно. А, точнее, — это всё",
-  "Работай над собой. Никто не влюбится с первого взгляда в твой богатый внутренний мир",
   "Бог никогда не покидал тебя",
   "Сломанные мелки по-прежнему цветные",
   "Мечтай о большем. Делай больше",
@@ -32,16 +31,16 @@ let timerCounter = 0;
 let timerId;
 
 // текст по умолчанию для слайдера
-text.textContent = arr[0];
+sliderText.textContent = arr[0];
 
 // функция для запуская таймера
 function timerStart() {
   timerId = setInterval(function () {
     timerCounter++;
-    text.textContent = arr[timerCounter];
+    sliderText.textContent = arr[timerCounter];
     if (arr.length <= timerCounter) {
       timerCounter = 0;
-      text.textContent = arr[timerCounter];
+      sliderText.textContent = arr[timerCounter];
     }
   }, 5000);
 
@@ -56,7 +55,7 @@ function timerPause() {
 
 // функция пролистнуть слайдер вперед
 function goForward() {
-  text.textContent = arr[timerCounter];
+  sliderText.textContent = arr[timerCounter];
   if (timerCounter <= 1) {
     timerCounter = 1;
   }
@@ -65,7 +64,7 @@ function goForward() {
 
 // функция пролистнуть слайдер назад
 function goBack() {
-  text.textContent = arr[timerCounter];
+  sliderText.textContent = arr[timerCounter];
   if (timerCounter == arr.length - 1) {
     timerCounter = 9;
   }
