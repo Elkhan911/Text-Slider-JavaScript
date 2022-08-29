@@ -1,0 +1,27 @@
+.content {
+  width: 1200px;
+  border: 1px solid black;
+  padding: 50px 0 0 0;
+  margin: auto;
+}
+
+.content__header {
+  border: 1px solid black;
+  width: 80%;
+  text-align: center;
+  margin: auto;
+  font-size: 30px;
+}
+
+.slider {
+  border: 1px solid green;
+  height: 400px;
+  margin: 100px;
+}
+
+.slider__text {
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+}
