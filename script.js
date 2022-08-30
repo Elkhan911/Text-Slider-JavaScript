@@ -31,6 +31,8 @@ let arr1 = [
   "Мечтай о большем. Делай больше",
 ];
 
+//  "images/picture7.jpg",   "images/picture11.jpg",   "images/picture13.jpg",   "images/picture14.jpg",  "images/picture15.jpg",
+
 let arr2 = [
   "images/picture0.jpg",
   "images/picture1.jpg",
