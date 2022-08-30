@@ -1,11 +1,16 @@
 let sliderText = document.querySelector("#_sliderText");
-const startBtn = document.querySelector("#_startBtn");
-const stopBtn = document.querySelector("#_stopBtn");
-const leftBtn = document.querySelector("#_leftBtn");
-const rightBtn = document.querySelector("#_rightBtn");
+const startBtn1 = document.querySelector("#_startBtn1");
+const stopBtn1 = document.querySelector("#_stopBtn1");
+const leftBtn1 = document.querySelector("#_leftBtn1");
+const rightBtn1 = document.querySelector("#_rightBtn1");
+
+const startBtn2 = document.querySelector("#_startBtn2");
+const stopBtn2 = document.querySelector("#_stopBtn2");
+const leftBtn2 = document.querySelector("#_leftBtn2");
+const rightBtn2 = document.querySelector("#_rightBtn2");
 
 // массив текста
-let arr = [
+let arr1 = [
   "Все дело в мгновении. Оно определяет жизнь",
   "Не понимаю, почему люди боятся новых идей. Я боюсь старых",
   "Счастье охотнее заходит в тот дом, где всегда царит хорошее настроение",
@@ -25,37 +30,55 @@ let arr = [
   "Мечтай о большем. Делай больше",
 ];
 
+let arr2 = [
+  "picture1.jpg",
+  "picture2.jpg",
+  "picture3.jpg",
+  "picture4.jpg",
+  "picture5.jpg",
+  "picture6.jpg",
+  "picture7.jpg",
+  "picture9.jpg",
+  "picture10.jpg",
+  "picture11.jpg",
+  "picture12.jpg",
+  "picture13.jpg",
+  "picture14.jpg",
+  "picture15.jpg",
+  "picture16.jpg",
+];
+
 // счетчик для таймера
 let timerCounter = 0;
 // идентифкатора таймера
 let timerId;
 
 // текст по умолчанию для слайдера
-sliderText.textContent = arr[0];
+sliderText.textContent = arr1[0];
 
 // функция для запуская таймера
 function timerStart() {
   timerId = setInterval(function () {
     timerCounter++;
-    sliderText.textContent = arr[timerCounter];
-    if (arr.length <= timerCounter) {
+    sliderText.textContent = arr1[timerCounter];
+    if (arr1.length <= timerCounter) {
       timerCounter = 0;
-      sliderText.textContent = arr[timerCounter];
+      sliderText.textContent = arr1[timerCounter];
     }
-  }, 5000);
+  }, 3000);
 
-  startBtn.removeEventListener("click", timerStart);
+  startBtn1.removeEventListener("click", timerStart);
 }
 
 // функция для паузы таймера
 function timerPause() {
   clearInterval(timerId);
-  startBtn.addEventListener("click", timerStart);
+  startBtn1.addEventListener("click", timerStart);
 }
 
 // функция пролистнуть слайдер вперед
 function goForward() {
-  sliderText.textContent = arr[timerCounter];
+  sliderText.textContent = arr1[timerCounter];
   if (timerCounter <= 1) {
     timerCounter = 1;
   }
@@ -64,15 +87,17 @@ function goForward() {
 
 // функция пролистнуть слайдер назад
 function goBack() {
-  sliderText.textContent = arr[timerCounter];
-  if (timerCounter == arr.length - 1) {
+  sliderText.textContent = arr1[timerCounter];
+  if (timerCounter == arr1.length - 1) {
     timerCounter = 9;
   }
   timerCounter++;
 }
 
-startBtn.addEventListener("click", timerStart);
-stopBtn.addEventListener("click", timerPause);
+startBtn1.addEventListener("click", timerStart(arr1));
+stopBtn1.addEventListener("click", timerPause);
 
-leftBtn.addEventListener("click", goForward);
-rightBtn.addEventListener("click", goBack);
+leftBtn1.addEventListener("click", goForward);
+rightBtn1.addEventListener("click", goBack);
+
+startBtn2.addEventListener("click", function () {});
