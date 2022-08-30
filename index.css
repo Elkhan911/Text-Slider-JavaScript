@@ -46,7 +46,7 @@
   border: 10px solid black;
   display: block;
   width: 60%;
-  max-height: 400px;
+  height: 400px;
   margin: auto;
   /* box-sizing: border-box; */
   box-sizing: content-box;
