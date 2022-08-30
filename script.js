@@ -1,11 +1,12 @@
 let sliderText = document.querySelector("#_sliderText");
 const startBtn1 = document.querySelector("#_startBtn1");
-const stopBtn1 = document.querySelector("#_stopBtn1");
+const pauseBtn1 = document.querySelector("#_stopBtn1");
 const leftBtn1 = document.querySelector("#_leftBtn1");
 const rightBtn1 = document.querySelector("#_rightBtn1");
 
+let sliderImage = document.querySelector("_sliderImage");
 const startBtn2 = document.querySelector("#_startBtn2");
-const stopBtn2 = document.querySelector("#_stopBtn2");
+const pauseBtn2 = document.querySelector("#_stopBtn2");
 const leftBtn2 = document.querySelector("#_leftBtn2");
 const rightBtn2 = document.querySelector("#_rightBtn2");
 
@@ -31,39 +32,34 @@ let arr1 = [
 ];
 
 let arr2 = [
-  "picture1.jpg",
-  "picture2.jpg",
-  "picture3.jpg",
-  "picture4.jpg",
-  "picture5.jpg",
-  "picture6.jpg",
-  "picture7.jpg",
-  "picture9.jpg",
-  "picture10.jpg",
-  "picture11.jpg",
-  "picture12.jpg",
-  "picture13.jpg",
-  "picture14.jpg",
-  "picture15.jpg",
-  "picture16.jpg",
+  "images/picture0.jpg",
+  "images/picture1.jpg",
+  "images/picture2.jpg",
+  "images/picture3.jpg",
+  "images/picture4.jpg",
+  "images/picture5.jpg",
+  "images/picture6.jpg",
+  "images/picture7.jpg",
+  "images/picture8.jpg",
+  "images/picture9.jpg",
 ];
 
 // счетчик для таймера
-let timerCounter = 0;
+let timerCounter1 = 0;
 // идентифкатора таймера
-let timerId;
+let timerId1;
 
 // текст по умолчанию для слайдера
 sliderText.textContent = arr1[0];
 
 // функция для запуская таймера
 function timerStart() {
-  timerId = setInterval(function () {
-    timerCounter++;
-    sliderText.textContent = arr1[timerCounter];
-    if (arr1.length <= timerCounter) {
-      timerCounter = 0;
-      sliderText.textContent = arr1[timerCounter];
+  timerId1 = setInterval(function () {
+    timerCounter1++;
+    sliderText.textContent = arr1[timerCounter1];
+    if (arr1.length <= timerCounter1) {
+      timerCounter1 = 0;
+      sliderText.textContent = arr1[timerCounter1];
     }
   }, 3000);
 
@@ -72,32 +68,62 @@ function timerStart() {
 
 // функция для паузы таймера
 function timerPause() {
-  clearInterval(timerId);
+  clearInterval(timerId1);
   startBtn1.addEventListener("click", timerStart);
 }
 
 // функция пролистнуть слайдер вперед
 function goForward() {
-  sliderText.textContent = arr1[timerCounter];
-  if (timerCounter <= 1) {
-    timerCounter = 1;
+  sliderText.textContent = arr1[timerCounter1];
+  if (timerCounter1 <= 1) {
+    timerCounter1 = 1;
   }
-  timerCounter--;
+  timerCounter1--;
 }
 
 // функция пролистнуть слайдер назад
 function goBack() {
-  sliderText.textContent = arr1[timerCounter];
-  if (timerCounter == arr1.length - 1) {
-    timerCounter = 9;
+  sliderText.textContent = arr1[timerCounter1];
+  if (timerCounter1 == arr1.length - 1) {
+    timerCounter1 = 9;
   }
-  timerCounter++;
+  timerCounter1++;
 }
 
 startBtn1.addEventListener("click", timerStart(arr1));
-stopBtn1.addEventListener("click", timerPause);
-
+pauseBtn1.addEventListener("click", timerPause);
 leftBtn1.addEventListener("click", goForward);
 rightBtn1.addEventListener("click", goBack);
 
-startBtn2.addEventListener("click", function () {});
+let timerId2;
+let timerCounter2 = 0;
+
+startBtn2.addEventListener("click", function () {
+  timerId2 = setInterval(function () {
+    timerCounter2++;
+    document.querySelector("#_sliderImage").src = arr2[timerCounter2];
+  }, 3000);
+});
+
+pauseBtn2.addEventListener("click", function () {
+  clearInterval(timerId2);
+});
+
+leftBtn2.addEventListener("click", function () {
+  if (timerCounter2 == 0) {
+    timerCounter2 = arr2.length;
+  }
+
+  timerCounter2--;
+  document.querySelector("#_sliderImage").src = arr2[timerCounter2];
+  console.log(arr2[timerCounter2]);
+});
+
+rightBtn2.addEventListener("click", function () {
+  if (timerCounter2 == arr2.length - 1) {
+    timerCounter2 = 0;
+  }
+  timerCounter2++;
+  document.querySelector("#_sliderImage").src = arr2[timerCounter2];
+  console.log(arr2[timerCounter2]);
+});
