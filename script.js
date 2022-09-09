@@ -31,6 +31,7 @@ let arr1 = [
   "Мечтай о большем. Делай больше",
 ];
 
+// массив картинок
 let arr2 = [
   "images/picture0.jpg",
   "images/picture1.jpg",
